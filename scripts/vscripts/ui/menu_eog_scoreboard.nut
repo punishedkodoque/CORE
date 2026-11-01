@@ -269,7 +269,7 @@ function ShowScoreboard()
 		scoreboardValueNames.append( { var = "score_kills", highlight = false } )
 		scoreboardValueNames.append( { var = "score_assault", highlight = true } )
 	}
-	else if ( storedModeString == PILOT_SKIRMISH || storedModeString == LIVE_FIRE )
+	else if ( storedModeString == PILOT_SKIRMISH || storedModeString == "lf" ) // "lf" is LIVE_FIRE, which a script that replaces _consts.nut may not define
 	{
 		// added RIGHT to LEFT
 		ShowScoreboardColumn( 6, "assists" )

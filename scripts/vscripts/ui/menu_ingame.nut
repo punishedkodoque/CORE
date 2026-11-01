@@ -103,7 +103,7 @@ function OnOpenInGameMenu()
 		}
 
 		local gamemode = GetConVarString( "mp_gamemode" )
-		if ( gamemode == PILOT_SKIRMISH || gamemode == LIVE_FIRE || gamemode == GUN_GAME ) //JFS. For R2 maybe try checking against Riff settings to see if Titans are disabled or not.
+		if ( gamemode == PILOT_SKIRMISH || gamemode == "lf" || gamemode == GUN_GAME ) //JFS. For R2 maybe try checking against Riff settings to see if Titans are disabled or not. "lf" is LIVE_FIRE, which a script that replaces _consts.nut may not define
 			file.BtnTitanLoadout.SetLocked( true )
 		else
 			file.BtnTitanLoadout.SetLocked( false )

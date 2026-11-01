@@ -140,7 +140,7 @@ function GameModeRemove( spawnpoint )
 		// these modes use the "gamemode_tdm" spawn points
 		case TEAM_DEATHMATCH:
 		case PILOT_SKIRMISH:
-		case LIVE_FIRE:
+		case "lf":	// LIVE_FIRE: a name here, not the constant, which a script that replaces _consts.nut may not define
 		case ATTRITION:
 		case ELIMINATION:
 		case TITAN_TAG:

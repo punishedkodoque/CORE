@@ -80,7 +80,13 @@ function OnOpenModeVariantMenu( menuName )
 	SetModesMenuContentVisible( false )
 
 	local buttons = file.modeVariantButtons[menuName]
-	local modes = file.modeVariantConfig[menuName]
+	// a mode a script that replaces _settings.nut does not define (Live Fire, under Frontier Overhaul) is left out
+	local modes = []
+	foreach ( modeName in file.modeVariantConfig[menuName] )
+	{
+		if ( modeName in GAMETYPE_TEXT )
+			modes.append( modeName )
+	}
 
 	foreach ( index, modeName in modes )
 	{
@@ -89,6 +95,12 @@ function OnOpenModeVariantMenu( menuName )
 		button.SetEnabled( true )
 		button.s.modeName <- modeName
 		button.Show()
+	}
+
+	for ( local index = modes.len(); index < buttons.len(); index++ )
+	{
+		buttons[index].s.modeName <- null
+		buttons[index].Hide()
 	}
 
 	local focusFound = false
